@@ -3,6 +3,7 @@ import { hot } from "react-hot-loader/root";
 import { Route, Switch } from "react-router-dom";
 import { compose } from "redux";
 import LandingPage from "./LandingPage";
+import HomePage from "./HomePage"
 import AuthIsLoaded from "./utils/AuthIsLoaded";
 import PrivateRoute from "./utils/PrivateRoute";
 import SplashScreen from "./utils/SplashScreen";
@@ -17,7 +18,7 @@ const App = () => (
     {/** Primary routing */}
     <Switch>
       <Route path="/" exact><LandingPage/></Route>
-      <PrivateRoute path="/App">Home</PrivateRoute>
+      <PrivateRoute path="/App"><HomePage/></PrivateRoute>
       <PrivateRoute path="/NewUser">Setup Profile Here</PrivateRoute>
       <Route path="*">404</Route>
     </Switch>
