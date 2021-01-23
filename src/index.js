@@ -1,5 +1,6 @@
 import 'react-hot-loader';
 
+import 'materialize-css/dist/css/materialize.min.css';
 import { ConnectedRouter } from 'connected-react-router';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -13,7 +14,6 @@ import history from './history';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import store from './store';
-
 /**
  * Wraps the component in a bunch of providers and renders
  * @param {Object} Component The component to render

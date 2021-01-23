@@ -2,16 +2,13 @@ import React from "react";
 import { connect } from "react-redux";
 import { isEmpty } from "react-redux-firebase";
 import { Redirect } from "react-router-dom";
-import { withLastLocation } from "react-router-last-location";
 import { compose } from "redux";
-import { authSelector } from "../../selectors";
 import { login } from "../../actions/authActions";
+import { authSelector } from "../../selectors";
 
-const LandingPage = ({auth, lastLocation, login}) => {
-  console.log("Rendering landing")
+const LandingPage = ({auth, login}) => {
   if (!isEmpty(auth)) {
-    const redirectPath = lastLocation ? lastLocation : "/App";
-    return <Redirect to={redirectPath}/>;
+    return <Redirect to="/App"/>;
   }
   return <div>
     <nav className="light-blue">
@@ -34,7 +31,6 @@ const LandingPage = ({auth, lastLocation, login}) => {
 }
 
 const enhance = compose(
-  withLastLocation,
   connect(state => ({
     auth: authSelector(state),
   }), dispatch => ({
