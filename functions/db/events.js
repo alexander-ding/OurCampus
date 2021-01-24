@@ -12,14 +12,6 @@ exports.onUpdate = functions.firestore.document("events/{eventID}").onUpdate(asy
     const peoplePromises = data.people.map(person => db.collection("users").doc(person).get().then(res => res.data()));
     const people = await Promise.all(peoplePromises);
     for (person of people) {
-      console.log({
-        body: `The event "${data.message}" has just reached its party size ${data.numPeople} and is ready to go! Your group mates are:\n` + (
-          // eslint-disable-next-line
-          people.filter(p => p.phone !== person.phone).map(p => `${person.displayName} (${person.phone})`)
-        ),
-        from: "+17028304723",
-        to: person.phone,
-      })
       client.messages.create({
         body: `The event "${data.message}" has just reached its party size ${data.numPeople} and is ready to go! Your group mates are:\n` + (
           // eslint-disable-next-line
