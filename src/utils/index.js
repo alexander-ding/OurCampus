@@ -1,6 +1,8 @@
 const iconMap = {
   "Crafts": "brush",
   "Dance & Theatre":"theaters",
+  "Entertainment": "movie",
+  "Arts & Culture": "brush",
   "Film":"movie",
   "Literature":"book",
   "Museums & Exhibits":"museum",
