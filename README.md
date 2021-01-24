@@ -1,70 +1,19 @@
-# Getting Started with Create React App
+# OurCampus
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Meet New People + Do What You Love = OurCampus
 
-## Available Scripts
+Watch the [demo](https://youtu.be/Ztbcy1WABpI), play around with the [live site](https://hackatbrown2021.firebaseapp.com/), or read more on our [DevPost](https://devpost.com/software/ourcampus). Built in 24 hours by Alexander Ding (@alexander-ding), Ian Gurland (@IanGurland), Naveen Sharma (@ns90001), and John Chung (@johnchung1010) at [Hack@Brown2021](https://2021.hackatbrown.org/). 
 
-In the project directory, you can run:
+## Inspiration
 
-### `npm start`
+As a team of four first-year students, we wanted to create an app that first-years will find helpful in their transition into college. During our first two weeks at Brown, social interactions with our peers were pretty bland. Due to the quarantine spurred by COVID-19, virtual conversations never went beyond these couple questions: “What’s your name?”, “Where’re you from?”, “What’re you planning to concentrate in?”. Occasionally, social media was exchanged, but even then it was difficult to stay in touch online and set up a meeting in person without it being awkward. For our hack, we wanted to find a way for Brown students to easily connect with one another in person and engage in activities that will lead to more meaningful conversations and new friendships.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## What it does
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+OurCampus is a web app where you can meet new people on your campus through activities that you love. Users that know an activity they’d like to do with others can post new events that other users can join. If you’re just looking to meet people, you can browse existing events and find an activity you might enjoy! Once an event has reached the target number of participants, a text message is sent to every group member containing each participant’s phone number, so the event logistics can be easily communicated.
 
-### `npm test`
+Although OurCampus can be used to organize formal, well-thought-out events, we envision it to be used for casual, impromptu hangouts where you can meet new members of your campus community. Whether it’s going to get ice cream or studying for an upcoming exam, you’ll never have to do it alone.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Stack
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The frontend website is designed using Figma and built using React.js and Redux.js. We take advantage of Materialize CSS for styling, icons, and out-of-the-box components. The backend is supported by Firebase. Specifically, we use Firebase Firestore as a database and Firebase Functions to deploy cloud functions. We use MonkeyLearn to create a machine-learning-powered API that takes in the description of an event and predicts its category. Finally, we use Twilio to programmatically send text notifications to event participants as events are finalized. 
