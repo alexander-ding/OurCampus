@@ -5,9 +5,11 @@ import Icon from 'react-materialize/lib/Icon'
 import { connect } from 'react-redux'
 import ReactTimeAgo from 'react-time-ago'
 import { compose } from 'redux'
-import { eventsListSelector, usersSelector } from '../../../selectors'
+import { attendEvent } from '../../../actions/eventsActions'
+import { suggestedEventsSelector, usersSelector } from '../../../selectors';
+import { iconMap } from "../../../utils";
 
-const EventList = ({users, events}) => {
+const EventList = ({users, events, attend}) => {
   if (events.length === 0) {
     return <div className="center">
       No matching events...
@@ -20,7 +22,7 @@ const EventList = ({users, events}) => {
       { events.map((event, index) => 
         <CollapsibleItem
           header={event.message}
-          icon={<Icon>fastfood</Icon>}
+          icon={<Icon style={{marginTop: "auto", marginBottom: "auto"}}>{iconMap[event.category]}</Icon>}
           node="div"
           key={index}
         >
@@ -34,7 +36,7 @@ const EventList = ({users, events}) => {
           </ul>
           <div>Expires <ReactTimeAgo date={event.expires.toDate()} locale="en-US"/></div>
           <br/>
-          <button className="btn waves-effect waves-light">
+          <button className="btn waves-effect waves-light" onClick={() => attend(event)}>
             Attend
             <Icon className="right">send</Icon>
           </button>
@@ -46,8 +48,10 @@ const EventList = ({users, events}) => {
 
 const enhance = compose(
   connect(state => ({
-    events: eventsListSelector(state), // TODO: refine events
+    events: suggestedEventsSelector(state),
     users: usersSelector(state),
+  }), dispatch => ({
+    attend: (event) => dispatch(attendEvent(event)),
   }))
 )
 

@@ -16,7 +16,9 @@ exports.onUpdate = functions.firestore.document("events/{eventID}").onUpdate(asy
           to: "+16174557815",
         })
       }).then(message => message.sid).catch();
-    }    
+    }
+    await db.collection("events").doc(eventID).delete();  
+  } else if (snap.after.data().people.length === 0) {
+    await db.collection("events").doc(eventID).delete();
   }
-  await db.collection("events").doc(eventID).delete();
 })

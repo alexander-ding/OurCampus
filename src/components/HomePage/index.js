@@ -6,8 +6,7 @@ import Section from 'react-materialize/lib/Section';
 import { connect } from 'react-redux';
 import { firestoreConnect, isLoaded } from 'react-redux-firebase';
 import { compose } from 'redux';
-import { profileSelector, usersSelector, eventsSelector } from '../../selectors';
-import Navbar from '../utils/Navbar';
+import { eventsSelector, profileSelector, usersSelector } from '../../selectors';
 import SplashScreen from '../utils/SplashScreen';
 import Dashboard from './Dashboard';
 import MyEvents from './MyEvents';
@@ -17,17 +16,16 @@ const HomePage = ({users, events, profile}) => {
 
   return ( 
     <div className="App">
-      <Navbar/>
       <Container>
-      <Section>
-        <Row>
-          <Col s={8}>
-            <Dashboard/>
-          </Col>
-          <Col s={4}>
-            <MyEvents/>
-          </Col>
-        </Row>
+        <Section>
+          <Row>
+            <Col s={8}>
+              <Dashboard/>
+            </Col>
+            <Col s={4}>
+              <MyEvents/>
+            </Col>
+          </Row>
         </Section>
       </Container>
     </div>

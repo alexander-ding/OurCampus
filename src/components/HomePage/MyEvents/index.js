@@ -4,48 +4,54 @@ import Icon from 'react-materialize/lib/Icon'
 import { connect } from 'react-redux'
 import ReactTimeAgo from 'react-time-ago'
 import { compose } from 'redux'
-import { eventsListSelector, usersSelector } from '../../../selectors'
+import { myEventsSelector, usersSelector } from '../../../selectors'
+import { iconMap } from "../../../utils"
+import { cancelEvent } from "../../../actions/eventsActions";
 
-const MyEvents = ({events, users}) => {
+const MyEvents = ({events, users, cancelEvent}) => {
   return (
     <div>
       <div className="center">
         <Button large waves="green" style={{width: "100%"}}><i className="material-icons">add</i></Button>
       </div>
-      <ul className="collapsible">
-        { events.map((event, index) => 
-          <li key={index}>
-            <div className="collapsible-header">
-              <Icon>fastfood</Icon>
-              {event.message}
-            </div>
-            <div className="collapsible-body" style={{display: "block"}}>
-              Current participants ({event.people.length}/{event.numPeople}):
-              <ul className="collection">
-                {event.people.map(person => 
-                  <li className="collection-item" key={person}>
-                    {users[person].displayName}
-                  </li>
-                )}
-              </ul>
-              <div>Expires <ReactTimeAgo date={event.expires.toDate()} locale="en-US"/></div>
-              <br/>
-              <button className="btn waves-effect waves-dark red">
-                Cancel
-                <Icon className="right">clear</Icon>
-              </button>
-            </div>
-          </li>
-        )}
-      </ul>
+      { events.length !== 0 && 
+        <ul className="collapsible">
+          { events.map((event, index) => 
+            <li key={index}>
+              <div className="collapsible-header">
+                <i className="material-icons" style={{marginTop: "auto", marginBottom: "auto"}}>{iconMap[event.category]}</i>
+                {event.message}
+              </div>
+              <div className="collapsible-body" style={{display: "block"}}>
+                Current participants ({event.people.length}/{event.numPeople}):
+                <ul className="collection">
+                  {event.people.map(person => 
+                    <li className="collection-item" key={person}>
+                      {users[person].displayName}
+                    </li>
+                  )}
+                </ul>
+                <div>Expires <ReactTimeAgo date={event.expires.toDate()} locale="en-US"/></div>
+                <br/>
+                <button className="btn waves-effect waves-dark red" onClick={() => cancelEvent(event)}>
+                  Cancel
+                  <Icon className="right">clear</Icon>
+                </button>
+              </div>
+            </li>
+          )}
+        </ul>
+      }
     </div>
   )
 }
 
 const enhance = compose(
   connect(state => ({
-    events: eventsListSelector(state), // TODO: refine events
+    events: myEventsSelector(state),
     users: usersSelector(state),
+  }), dispatch => ({
+    cancelEvent: (event) => dispatch(cancelEvent(event)),
   }))
 )
 

@@ -8,15 +8,8 @@ const NewUserPage = ({profile, test}) => {
   if (profile.isProfileComplete) {
     return <Redirect to="/App"/>;
   }
-  return <div>
-    <nav className="light-blue">
-      <div className="nav-wrapper container">
-        <a className="brand-logo" href="/">Logo</a>
-      </div>
-    </nav>
-    <div className="container">
-    </div>
-  </div>
+  return <div className="container">
+  </div>;
 }
 
 const enhance = compose(
