@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import { compose } from "redux";
 import LandingPage from "./LandingPage";
 import HomePage from "./HomePage"
+import NewUserPage from "./NewUserPage";
 import AuthIsLoaded from "./utils/AuthIsLoaded";
 import PrivateRoute from "./utils/PrivateRoute";
 import SplashScreen from "./utils/SplashScreen";
@@ -19,7 +20,7 @@ const App = () => (
     <Switch>
       <Route path="/" exact><LandingPage/></Route>
       <PrivateRoute path="/App"><HomePage/></PrivateRoute>
-      <PrivateRoute path="/NewUser">Setup Profile Here</PrivateRoute>
+      <PrivateRoute path="/NewUser"><NewUserPage/></PrivateRoute>
       <Route path="*">404</Route>
     </Switch>
     </AuthIsLoaded>
