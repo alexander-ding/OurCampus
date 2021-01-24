@@ -1,22 +1,49 @@
 import React from 'react'
-import EventSummary from './EventSummary'
-import {Collapsible} from "react-materialize"
+import { Collapsible } from "react-materialize"
+import CollapsibleItem from 'react-materialize/lib/CollapsibleItem'
+import Icon from 'react-materialize/lib/Icon'
+import { connect } from 'react-redux'
+import { compose } from 'redux'
+import { eventsListSelector, usersSelector } from '../../../selectors'
 
-const EventList = () => {
-    return (
-        <div className="event-list section">
-            <Collapsible
-                accordion
-                popout
-                >
-                <EventSummary name="Test1" host="User5"/>
-                <EventSummary name="Test2" host="User4"/>
-                <EventSummary name="Test3" host="User3"/>
-                <EventSummary name="Test4" host="User2"/>
-                <EventSummary name="Test5" host="User1"/>
-            </Collapsible>
-        </div>
-    )
+const EventList = ({users, events}) => {
+  return (
+    <div className="event-list section">
+      <Collapsible
+        accordion
+      >
+        { events.map((event, index) => 
+          <CollapsibleItem
+            expanded={false}
+            header={event.message}
+            icon={<Icon>fastfood</Icon>}
+            node="div"
+            key={index}
+          >
+            Current participants ({event.people.length}/{event.numPeople}):
+            <ul className="collection">
+              {event.people.map(person => 
+                <li className="collection-item" key={person}>
+                  {users[person].displayName}
+                </li>
+              )}
+            </ul>
+            <button className="btn waves-effect waves-light" name="action">
+              Attend
+              <Icon className="right">send</Icon>
+            </button>
+          </CollapsibleItem>
+        )}
+      </Collapsible>
+    </div>
+  )
 }
 
-export default EventList
+const enhance = compose(
+  connect(state => ({
+    events: eventsListSelector(state), // TODO: refine events
+    users: usersSelector(state),
+  }))
+)
+
+export default enhance(EventList);
