@@ -1,12 +1,12 @@
 import React from "react";
-import Button from "react-materialize/lib/Button";
 import EventList from "./EventList";
 import MyEventList from "./MyEventList";
+import AddEventPopup from '../../AddEventPage'
 
 const Dashboard = () => {
   return <div className="dashboard container">
     <div className="center" style={{padding:"20px"}}>
-      <Button large waves="green"><i className="material-icons">add</i></Button>
+      <AddEventPopup />
     </div>
     <div className="row">
         <div className="col s2">
