@@ -11,7 +11,7 @@ export const addEvent = (message, numPeople, expirationHours) => {
     ]).then(r => {
       const category = r.body[0].classifications[0]["tag_name"];
       */
-     const category = "Science & Technology";
+     const category = "Food & Drink";
       db.collection("events").add({
         message,
         numPeople,

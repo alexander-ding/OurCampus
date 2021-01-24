@@ -47,7 +47,7 @@ const AddEvent = ({addEvent}) => {
       preventScrolling: true,
       startingTop: '4%'
     }}
-    trigger={<Button className="blue" large waves="light" style={{width: "100%"}}><i className="material-icons">add</i></Button>}
+    trigger={<Button className="blue" large waves="light" style={{width: "100%"}}>New Event</Button>}
   >
     <div className="row" style={{margin: 0}}>
       <div className="col s2">

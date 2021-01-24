@@ -9,7 +9,6 @@ import { iconMap } from "../../../utils"
 import AddEvent from './AddEvent'
 
 const MyEvents = ({events, users, cancelEvent}) => {
-  console.log(events);
   return (
     <div>
       <div className="center">
