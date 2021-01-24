@@ -1,23 +1,24 @@
 import React from 'react'
-import Button from 'react-materialize/lib/Button'
 import Icon from 'react-materialize/lib/Icon'
 import { connect } from 'react-redux'
 import ReactTimeAgo from 'react-time-ago'
 import { compose } from 'redux'
+import { cancelEvent } from "../../../actions/eventsActions"
 import { myEventsSelector, usersSelector } from '../../../selectors'
 import { iconMap } from "../../../utils"
-import { cancelEvent } from "../../../actions/eventsActions";
+import AddEvent from './AddEvent'
 
 const MyEvents = ({events, users, cancelEvent}) => {
+  console.log(events);
   return (
     <div>
       <div className="center">
-        <Button className="blue" large waves="light" style={{width: "100%"}}><i className="material-icons">add</i></Button>
+        <AddEvent/>
       </div>
       { events.length !== 0 && 
         <ul className="collapsible">
-          { events.map((event, index) => 
-            <li key={index}>
+          { events.map(event => 
+            <li key={event.key}>
               <div className="collapsible-header">
                 <i className="material-icons" style={{marginTop: "auto", marginBottom: "auto"}}>{iconMap[event.category]}</i>
                 {event.message}

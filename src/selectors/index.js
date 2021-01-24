@@ -14,7 +14,7 @@ export const currentEventsSelector = createSelector(
     if (!events) return [];
     return Object.entries(events)
     .map(([key, event]) => ({...event, key}))
-    .filter(event => event.expires.toDate() >= new Date());
+    .filter(event => event.expires && event.expires.toDate() >= new Date());
   }
 )
 

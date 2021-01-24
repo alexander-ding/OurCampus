@@ -26,20 +26,18 @@ const render = (Component) => {
   // provides a bunch of objects:
   // router, redux store, firebase/firestore, and last location
   ReactDOM.render(
-    <React.StrictMode>
-      <Provider store={store}>
-        <ConnectedRouter history={history}>
-          <Router history={history}>
-            {/*setupFB(store) associates firebase with the redux store*/}
-            <ReactReduxFirebaseProvider {...setupFB(store)}>
-              <LastLocationProvider>
-                <Component/>
-              </LastLocationProvider>
-            </ReactReduxFirebaseProvider>
-          </Router>
-        </ConnectedRouter>
-      </Provider>
-    </React.StrictMode>,
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <Router history={history}>
+          {/*setupFB(store) associates firebase with the redux store*/}
+          <ReactReduxFirebaseProvider {...setupFB(store)}>
+            <LastLocationProvider>
+              <Component/>
+            </LastLocationProvider>
+          </ReactReduxFirebaseProvider>
+        </Router>
+      </ConnectedRouter>
+    </Provider>,
     document.getElementById('root')
   );
 }
