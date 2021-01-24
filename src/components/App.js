@@ -2,8 +2,9 @@ import React, { Suspense } from "react";
 import { hot } from "react-hot-loader/root";
 import { Route, Switch } from "react-router-dom";
 import { compose } from "redux";
+import Navbar from "./utils/Navbar";
+import HomePage from "./HomePage";
 import LandingPage from "./LandingPage";
-import HomePage from "./HomePage"
 import NewUserPage from "./NewUserPage";
 import AuthIsLoaded from "./utils/AuthIsLoaded";
 import PrivateRoute from "./utils/PrivateRoute";
@@ -16,6 +17,7 @@ import SplashScreen from "./utils/SplashScreen";
 const App = () => (
   <Suspense fallback={<SplashScreen/>}>
     <AuthIsLoaded>
+    <Navbar/>
     {/** Primary routing */}
     <Switch>
       <Route path="/" exact><LandingPage/></Route>
