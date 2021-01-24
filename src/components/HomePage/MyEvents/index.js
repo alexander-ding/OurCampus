@@ -12,7 +12,7 @@ const MyEvents = ({events, users, cancelEvent}) => {
   return (
     <div>
       <div className="center">
-        <Button large waves="green" style={{width: "100%"}}><i className="material-icons">add</i></Button>
+        <Button className="blue" large waves="light" style={{width: "100%"}}><i className="material-icons">add</i></Button>
       </div>
       { events.length !== 0 && 
         <ul className="collapsible">
@@ -27,7 +27,7 @@ const MyEvents = ({events, users, cancelEvent}) => {
                 <ul className="collection">
                   {event.people.map(person => 
                     <li className="collection-item" key={person}>
-                      {users[person].displayName}
+                      {users[person] && users[person].displayName}
                     </li>
                   )}
                 </ul>

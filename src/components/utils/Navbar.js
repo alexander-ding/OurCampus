@@ -5,17 +5,20 @@ import { Link } from 'react-router-dom'
 import { compose } from 'redux'
 import { logout } from '../../actions/authActions'
 import { profileSelector } from '../../selectors'
+import logo from "../../assets/logo.png";
 
 const Navbar = ({profile, logout}) => {
   return (
     <nav className="nav-wrapper grey darken-3">
       <div className="container">
-        <Link to="/App" className="brand-logo">OurCampus</Link>
+        <Link to="/App" className="blue-text">
+          <img src={logo} alt="logo" style={{margin: "auto", height: 40, transform: "translateY(10px)"}}/>
+        </Link>
         { !isEmpty(profile) ? 
           <ul className="right">
             <li>
               {// eslint-disable-next-line
-              }<a href="#" onClick={logout}>Logout</a></li>
+              }<a href="#" className="blue-text" onClick={logout}>Logout</a></li>
           </ul> :
           null
         }
