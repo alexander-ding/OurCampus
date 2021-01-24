@@ -1,7 +1,7 @@
-const twilio = require("twilio");
+const functions = require("firebase-functions");
 
-const accountSid = process.env.twilio.account_sid;
-const authToken = process.env.twilio.auth_token;
+const accountSid = functions.config().twilio.account_sid;
+const authToken = functions.config().twilio.auth_token;
 const client = require('twilio')(accountSid, authToken);
 
-export { client };
+exports.client = client;
