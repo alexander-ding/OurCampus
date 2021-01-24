@@ -6,12 +6,11 @@ const model_id = 'cl_4omNGduL';
 export const addEvent = (message, numPeople, expirationHours) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     const db = getFirestore();
-    /*ml.classifiers.classify(model_id, [
+    ml.classifiers.classify(model_id, [
       message
     ]).then(r => {
       const category = r.body[0].classifications[0]["tag_name"];
-      */
-     const category = "Food & Drink";
+      console.log(category);
       db.collection("events").add({
         message,
         numPeople,
@@ -21,7 +20,7 @@ export const addEvent = (message, numPeople, expirationHours) => {
           getState().firebase.auth.uid,
         ],
       })
-    // })
+    })
   }
 }
 
