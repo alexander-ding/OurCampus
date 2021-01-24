@@ -91,3 +91,11 @@ code {
 [type="radio"]:checked + span::after, [type="radio"].with-gap:checked + span::before, [type="radio"].with-gap:checked + span::after {
   border: 2px solid #2196F3 !important;
 }
+
+.splash-screen {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
