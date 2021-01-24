@@ -34,9 +34,7 @@ const rfConfig = {};
 firebase.initializeApp(firebaseConfig);
 firebase.functions();
 firebase.firestore();
-if (process.env.NODE_ENV === 'production') {
-  firebase.performance();
-} else {
+if (process.env.NODE_ENV !== 'production') {
   firebase.auth().useEmulator('http://localhost:9099/');
   firebase.functions().useEmulator('localhost', 5001);
   firebase.firestore().useEmulator('localhost', 8080);
