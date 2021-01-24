@@ -5,7 +5,6 @@ const model_id = 'cl_4omNGduL';
 
 export const addEvent = (message, numPeople, expirationHours) => {
   return (dispatch, getState, {getFirebase, getFirestore}) => {
-    const firebase = getFirebase();
     const db = getFirestore();
     /*ml.classifiers.classify(model_id, [
       message
@@ -19,9 +18,37 @@ export const addEvent = (message, numPeople, expirationHours) => {
         expires: date.addHours(new Date(), expirationHours),
         category,
         people: [
-          firebase.auth.uid,
+          getState().firebase.auth.uid,
         ],
       })
     // })
+  }
+}
+
+export const attendEvent = (event) => {
+  return (dispatch, getState, {getFirebase, getFirestore}) => {
+    const db = getFirestore();
+    db.collection("events").doc(event.key).update({
+      ...event,
+      people: [
+        ...event.people,
+        getState().firebase.auth.uid,
+      ]
+    });
+  }
+}
+
+export const cancelEvent = (event) => {
+  return (dispatch, getState, {getFirebase, getFirestore}) => {
+    const db = getFirestore();
+    const people = event.people.filter(person => person !== getState().firebase.auth.uid);
+    if (people.length === 0) {
+      db.collection("events").doc(event.key).delete();
+    } else {
+      db.collection("events").doc(event.key).update({
+        ...event,
+        people, 
+      });
+    }
   }
 }

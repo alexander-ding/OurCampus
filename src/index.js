@@ -14,6 +14,10 @@ import history from './history';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import store from './store';
+import TimeAgo from 'javascript-time-ago'
+import en from 'javascript-time-ago/locale/en'
+TimeAgo.addDefaultLocale(en)
+
 /**
  * Wraps the component in a bunch of providers and renders
  * @param {Object} Component The component to render
