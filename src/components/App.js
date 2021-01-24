@@ -2,8 +2,8 @@ import React, { Suspense } from "react";
 import { hot } from "react-hot-loader/root";
 import { Route, Switch } from "react-router-dom";
 import { compose } from "redux";
+import HomePage from "./HomePage";
 import LandingPage from "./LandingPage";
-import HomePage from "./HomePage"
 import NewUserPage from "./NewUserPage";
 import AuthIsLoaded from "./utils/AuthIsLoaded";
 import PrivateRoute from "./utils/PrivateRoute";
