@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import {Collapsible, CollapsibleItem, Icon} from 'react-materialize'
+import React, { Component } from 'react'
+import { CollapsibleItem, Icon } from 'react-materialize'
 
 
 class EventSummary extends Component{
