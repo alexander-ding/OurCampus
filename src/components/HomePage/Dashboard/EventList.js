@@ -19,12 +19,12 @@ const EventList = ({users, events, attend}) => {
     <Collapsible
       accordion
     >
-      { events.map((event, index) => 
+      { events.map(event => 
         <CollapsibleItem
           header={event.message}
           icon={<Icon style={{marginTop: "auto", marginBottom: "auto"}}>{iconMap[event.category]}</Icon>}
           node="div"
-          key={index}
+          key={event.key}
         >
           Current participants ({event.people.length}/{event.numPeople}):
           <ul className="collection">
@@ -36,7 +36,7 @@ const EventList = ({users, events, attend}) => {
           </ul>
           <div>Expires <ReactTimeAgo date={event.expires.toDate()} locale="en-US"/></div>
           <br/>
-          <button className="btn waves-effect waves-light" onClick={() => attend(event)}>
+          <button className="blue btn waves-effect waves-light" onClick={() => attend(event)}>
             Attend
             <Icon className="right">send</Icon>
           </button>
