@@ -30,7 +30,7 @@ const EventList = ({users, events, attend}) => {
           <ul className="collection">
             {event.people.map(person => 
               <li className="collection-item" key={person}>
-                {users[person].displayName}
+                {users[person] && users[person].displayName}
               </li>
             )}
           </ul>
