@@ -2,7 +2,7 @@
 
 Meet New People + Do What You Love = OurCampus
 
-Watch the [demo](https://youtu.be/Ztbcy1WABpI), play around with the [live site](https://hackatbrown2021.firebaseapp.com/), or read more on our [DevPost](https://devpost.com/software/ourcampus). Built in 24 hours by Alexander Ding (@alexander-ding), Ian Gurland (@IanGurland), Naveen Sharma (@ns90001), and John Chung (@johnchung1010) at [Hack@Brown2021](https://2021.hackatbrown.org/). To improve workflow, Ian and Naveen worked from Naveen's computer, while Alex and John worked from Alex's computer.
+Watch the [demo](https://youtu.be/Ztbcy1WABpI), play around with the [live site](https://hackatbrown2021.firebaseapp.com/, currently defunct due to maintenance costs), or read more on our [DevPost](https://devpost.com/software/ourcampus). Built in 24 hours by Alexander Ding (@alexander-ding), Ian Gurland (@IanGurland), Naveen Sharma (@ns90001), and John Chung (@johnchung1010) at [Hack@Brown2021](https://2021.hackatbrown.org/). To improve workflow, Ian and Naveen worked from Naveen's computer, while Alex and John worked from Alex's computer.
 
 ## Inspiration
 
